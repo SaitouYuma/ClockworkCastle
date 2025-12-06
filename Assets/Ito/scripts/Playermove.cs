@@ -2,19 +2,20 @@ using UnityEngine;
 
 public class Playermove : MonoBehaviour
 {
-    [SerializeField]float _playerSpeed = 5f;
+    [SerializeField] float _playerSpeed = 5f;
     [SerializeField] float _playerJump = 10f;
+    [SerializeField] int _playerHp = 1;
     private bool _isGrounded = false;
     Rigidbody2D _rb;
     private float x;
     void Start()
     {
-       _rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.CompareTag("Ground"))
+        if (col.gameObject.CompareTag("Ground"))
         {
             _isGrounded = true;
         }
@@ -29,12 +30,24 @@ public class Playermove : MonoBehaviour
     }
 
     void Update()
-    { 
+    {
         x = Input.GetAxis("Horizontal");
         _rb.linearVelocity = new Vector2(x * _playerSpeed, _rb.linearVelocity.y);
-        if(Input.GetKeyDown(KeyCode.Space) && _isGrounded==true)
+        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded == true)
         {
             _rb.linearVelocity = new Vector2(x * _playerSpeed, _playerJump);
         }
+    }
+    public void TakeDamage(int damage)
+    {
+        _playerHp -= damage;
+        if (_playerHp == 0)
+        {
+            Dead();
+        }
+    }
+    void Dead()
+    {
+        Debug.Log("player‚ªŽ€‚ñ‚¶‚á‚Á‚½");
     }
 }
