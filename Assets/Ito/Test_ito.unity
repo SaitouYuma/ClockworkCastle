@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 351881457}
   - component: {fileID: 351881456}
   - component: {fileID: 351881455}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ground (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 811779869}
   - component: {fileID: 811779868}
   - component: {fileID: 811779867}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -602,7 +602,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 88a748c6913904643ac6494e2b619563, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -723,9 +723,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b107d1e9744a0247993668023390298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Playermove
-  _playerSpeed: 5
-  _playerJump: 10
+  _player: {fileID: 0}
+  _playerSpeed: 3
+  _playerJump: 5
   _playerHp: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &2129786979
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,7 +741,7 @@ GameObject:
   - component: {fileID: 2129786982}
   - component: {fileID: 2129786981}
   - component: {fileID: 2129786980}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ground (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -857,7 +861,7 @@ Transform:
   m_GameObject: {fileID: 2129786979}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.79, y: -1.44, z: 0}
+  m_LocalPosition: {x: -2.79, y: -3.76, z: 0}
   m_LocalScale: {x: 2, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

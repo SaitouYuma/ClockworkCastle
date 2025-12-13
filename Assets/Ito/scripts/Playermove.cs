@@ -24,7 +24,6 @@ public class Playermove : MonoBehaviour
     {
         x = Input.GetAxis("Horizontal");
         _rb.linearVelocity = new Vector2(x * _playerSpeed, _rb.linearVelocity.y);
-        Debug.Log($"{_rb.linearVelocity} {x}");
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() == true)
         {
             
@@ -50,5 +49,6 @@ public class Playermove : MonoBehaviour
     void Dead()
     {
         Debug.Log("player‚ªŽ€‚ñ‚¶‚á‚Á‚½");
+
     }
 }
