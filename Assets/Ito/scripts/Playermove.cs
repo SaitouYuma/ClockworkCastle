@@ -33,6 +33,10 @@ public class Playermove : MonoBehaviour
         {
             ItemPickup();
         }
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+          
+        }
     }
     public void TakeDamage(int damage)
     {
@@ -49,6 +53,6 @@ public class Playermove : MonoBehaviour
     void Dead()
     {
         Debug.Log("player‚ªŽ€‚ñ‚¶‚á‚Á‚½");
-
     }
+
 }
