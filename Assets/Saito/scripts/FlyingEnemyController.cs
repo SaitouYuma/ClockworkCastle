@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DashFlyingEnemy : MonoBehaviour
+public class FlyingEnemyController : MonoBehaviour
 {
     enum State
     {
@@ -9,7 +9,8 @@ public class DashFlyingEnemy : MonoBehaviour
         Retreat,
         Charge,
         Dash,
-        Cooldown
+        Cooldown,
+        Decoy
     }
     [SerializeField] float activateDistance = 6f;
     [Header("Move")]
@@ -26,6 +27,13 @@ public class DashFlyingEnemy : MonoBehaviour
     [SerializeField] float dashTime = 0.4f;
     [SerializeField] float cooldownTime = 1f;
 
+    [Header("Decoy")]
+    [SerializeField] float decoyDetectRange = 6f; // öôÇ…îΩâûÇ∑ÇÈãóó£
+    [SerializeField] float decoySpeed = 10f;       // öôÇ…å¸Ç©Ç§ë¨Ç≥
+
+    Transform decoyTarget;
+    State previousState;
+
     Transform player;
     State state = State.Idle;
     float timer;
@@ -40,10 +48,13 @@ public class DashFlyingEnemy : MonoBehaviour
     {
         if (player == null) return;
 
+        CheckDecoy();
+
         switch (state)
         {
             case State.Idle:
-                Idle(); break;
+                Idle();
+                break;
             case State.Chase:
                 Chase();
                 break;
@@ -58,6 +69,9 @@ public class DashFlyingEnemy : MonoBehaviour
                 break;
             case State.Cooldown:
                 Cooldown();
+                break;
+            case State.Decoy:
+                Decoy();
                 break;
         }
     }
@@ -134,4 +148,35 @@ public class DashFlyingEnemy : MonoBehaviour
             state = State.Chase;
         }
     }
+
+    void CheckDecoy()
+    {
+        if (state == State.Decoy) return;
+
+        Collider2D hit = Physics2D.OverlapCircle(
+            transform.position,
+            decoyDetectRange,
+            LayerMask.GetMask("Decoy")
+        );
+
+        if (hit != null)
+        {
+            decoyTarget = hit.transform;
+            previousState = state;
+            state = State.Decoy;
+        }
+    }
+
+    void Decoy()
+    {
+        if (decoyTarget == null)
+        {
+            state = previousState; // öôÇ™è¡Ç¶ÇΩÇÁå≥Ç…ñﬂÇÈ
+            return;
+        }
+
+        Vector2 dir = (decoyTarget.position - transform.position).normalized;
+        transform.position += (Vector3)(dir * decoySpeed * Time.deltaTime);
+    }
+
 }
