@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - Decoy
   layers:
   - Default
   - TransparentFX
@@ -39,8 +40,20 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background
+    uniqueID: 1857914253
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 2252880789
+    locked: 0
+  - name: enemy
+    uniqueID: 256032697
+    locked: 0
+  - name: Player
+    uniqueID: 3210598983
     locked: 0
   m_RenderingLayers:
   - Default
