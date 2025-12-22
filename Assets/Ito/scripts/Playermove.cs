@@ -13,6 +13,7 @@ public class Playermove : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
     Rigidbody2D _rb;
     private float x;
+    DeviceController device;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -36,9 +37,9 @@ public class Playermove : MonoBehaviour
         {
             ItemPickup();
         }
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-          
+        if(device != null && Input.GetKeyDown(KeyCode.F))
+        { 
+            device.Activate();
         }
 
     }
@@ -88,4 +89,19 @@ public class Playermove : MonoBehaviour
         Debug.Log("player‚ªŽ€‚ñ‚¶‚á‚Á‚½");
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Device"))
+        {
+            device = other.GetComponent<DeviceController>();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Device"))
+        {
+            device = null;
+        }
+    }
 }
