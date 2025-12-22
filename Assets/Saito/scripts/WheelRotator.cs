@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class WheelRotator : MonoBehaviour
 {
-    public float speed = 30f; // 正の値でも負の値でもOK
+    public float speed = 30f; // 正の値でも負の値でもO
 
+    
     void Update()
     {
         transform.Rotate(0, 0, speed * Time.deltaTime);
@@ -13,4 +14,5 @@ public class WheelRotator : MonoBehaviour
     {
         speed = -speed;
     }
+    
 }
