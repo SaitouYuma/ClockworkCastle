@@ -587,13 +587,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Playermove
   rayLength: 0.7
-  _player: {fileID: 0}
+  _player: {fileID: 1530210395}
   _playerSpeed: 3
   _playerJump: 5
   _playerHp: 1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!1001 &2531216354121585146
 PrefabInstance:
   m_ObjectHideFlags: 0
