@@ -593,7 +593,7 @@ MonoBehaviour:
   _playerHp: 1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
 --- !u!1001 &2531216354121585146
 PrefabInstance:
   m_ObjectHideFlags: 0
