@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Playermove : MonoBehaviour
 {
+    Transform currentGround;
+    [SerializeField] float rayLength = 0.7f;
     private Vector2 _rayPos;
     [SerializeField] GameObject _player;
     [SerializeField] float _playerSpeed = 5f;
@@ -15,21 +17,22 @@ public class Playermove : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
     }
-    private bool IsGrounded()
+   
+    bool IsGrounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, groundLayer);
         return hit.collider != null;
     }
     void Update()
     {
+        CheckGround();
         x = Input.GetAxis("Horizontal");
         _rb.linearVelocity = new Vector2(x * _playerSpeed, _rb.linearVelocity.y);
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() == true)
         {
-            
             _rb.linearVelocity = new Vector2(x * _playerSpeed, _playerJump);
         }
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             ItemPickup();
         }
@@ -37,6 +40,7 @@ public class Playermove : MonoBehaviour
         {
           
         }
+
     }
     public void TakeDamage(int damage)
     {
@@ -46,6 +50,35 @@ public class Playermove : MonoBehaviour
             Dead();
         }
     }
+    void CheckGround()
+    {
+        Vector2 origin = (Vector2)transform.position + Vector2.down * 0.1f;
+
+        RaycastHit2D hit = Physics2D.Raycast(
+            origin,
+            Vector2.down,
+            rayLength,
+            groundLayer
+        );
+
+        if (hit.collider != null && hit.collider.CompareTag("Wheelground"))
+        {
+            if (currentGround != hit.transform)
+            {
+                transform.SetParent(hit.transform);
+                currentGround = hit.transform;
+            }
+        }
+        else
+        {
+            if (currentGround != null)
+            {
+                transform.SetParent(null);
+                currentGround = null;
+            }
+        }
+    }
+
     void ItemPickup()
     {
         //ÉAÉCÉeÉÄèàóù
