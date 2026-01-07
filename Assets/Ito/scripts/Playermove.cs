@@ -1,12 +1,11 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class Playermove : MonoBehaviour
 {
     Transform currentGround;
     [SerializeField] float rayLength = 0.7f;
-    private Vector2 _rayPos;
-    [SerializeField] GameObject _player;
     [SerializeField] float _playerSpeed = 5f;
     [SerializeField] float _playerJump = 10f;
     [SerializeField] int _playerHp = 1;
@@ -17,17 +16,26 @@ public class Playermove : MonoBehaviour
     float _yvelo;
     DeviceController device;
     bool _grounded;
+    bool _isDead;
+    Vector2 _origin;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _anim = GetComponentInChildren<Animator>();
+        _anim = GetComponent<Animator>();
     }
-   
+
     bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, groundLayer);
+        _origin = (Vector2)transform.position + Vector2.down * 1.5f;
+        RaycastHit2D hit = Physics2D.Raycast(
+            _origin,
+            Vector2.down,
+            rayLength,
+            groundLayer
+        );
         return hit.collider != null;
     }
+
     void Update()
     {
         _yvelo = _rb.linearVelocity.y;
@@ -75,9 +83,8 @@ public class Playermove : MonoBehaviour
     }
     void CheckGround()
     {
-        Vector2 origin = (Vector2)transform.position + Vector2.down * 0.1f;
-
-        RaycastHit2D hit = Physics2D.Raycast(
+        Vector2 origin = (Vector2)transform.position + Vector2.down * 1.5f;
+            RaycastHit2D hit = Physics2D.Raycast(
             origin,
             Vector2.down,
             rayLength,
@@ -108,7 +115,15 @@ public class Playermove : MonoBehaviour
     }
     void Dead()
     {
-        Debug.Log("player‚ªŽ€‚ñ‚¶‚á‚Á‚½");
+        _isDead = true;
+        _anim.SetBool("IsDead", _isDead);
+    }
+
+    public void OnDeadAnimationEnd()
+    {
+        GameManager.instance.PlayerDead();
+        Destroy(gameObject);
+        Debug.Log("‚¨‘O‚Í‚à‚¤Ž€‚ñ‚Å‚¢‚é");
     }
 
     void OnTriggerEnter2D(Collider2D other)
