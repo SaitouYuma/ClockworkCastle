@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    [SerializeField] int _playerlife = 3;
+    [SerializeField] int _playerstock = 3;
 
     private void Awake()
     {
@@ -39,6 +39,24 @@ public class GameManager : MonoBehaviour
         Application.Quit();
 #endif  
     }
+    public void PlayerDead()
+    {
+        _playerstock--;
+        Debug.Log("残りストックは" + _playerstock);
+        if (_playerstock > 0)
+        {
+            Respawn();
+        }
+        else
+        {
+            Gameover();
+        }
+    }
+    public void Respawn()
+    {
+
+    }
+
     public void Gameover()
     {
         SceneChanger(0);//ゲームオーバーシーンへ
