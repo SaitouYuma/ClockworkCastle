@@ -3,8 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] GameObject _playerPrefab;
+    GameObject _currentplayer;
     public static GameManager instance;
     [SerializeField] int _playerstock = 3;
+    public Vector2 _checkPointPos;
+    cameraaa _camera;
 
     private void Awake()
     {
@@ -54,7 +58,12 @@ public class GameManager : MonoBehaviour
     }
     public void Respawn()
     {
+        Debug.Log(_checkPointPos);
 
+        _currentplayer = Instantiate(_playerPrefab, _checkPointPos, Quaternion.identity);
+
+        cameraaa cam = Camera.main.GetComponent<cameraaa>();
+        cam.Settarget(_currentplayer);
     }
 
     public void Gameover()
