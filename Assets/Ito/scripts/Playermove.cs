@@ -1,38 +1,66 @@
 using Unity.VisualScripting;
 using UnityEngine;
-
 public class Playermove : MonoBehaviour
 {
     Transform currentGround;
     [SerializeField] float rayLength = 0.7f;
-    private Vector2 _rayPos;
-    [SerializeField] GameObject _player;
     [SerializeField] float _playerSpeed = 5f;
     [SerializeField] float _playerJump = 10f;
     [SerializeField] int _playerHp = 1;
     [SerializeField] LayerMask groundLayer;
+    Animator _anim;
     Rigidbody2D _rb;
     private float x;
+    float _yvelo;
     DeviceController device;
+    bool _grounded;
+    bool _isDead;
+    Vector2 _origin;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
     }
-   
+
     bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, groundLayer);
+        _origin = (Vector2)transform.position + Vector2.down * 1.5f;
+        RaycastHit2D hit = Physics2D.Raycast(
+            _origin,
+            Vector2.down,
+            rayLength,
+            groundLayer
+        );
         return hit.collider != null;
     }
+
     void Update()
     {
+        _yvelo = _rb.linearVelocity.y;
         CheckGround();
         x = Input.GetAxis("Horizontal");
-        _rb.linearVelocity = new Vector2(x * _playerSpeed, _rb.linearVelocity.y);
+        _rb.linearVelocity = new Vector2(x * _playerSpeed, _yvelo);
+        _anim.SetFloat("Speed", Mathf.Abs(x));//走るアニメーションの処理
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() == true)
         {
             _rb.linearVelocity = new Vector2(x * _playerSpeed, _playerJump);
+            _anim.SetTrigger("Jump");
         }
+
+        _anim.SetFloat("Yvelocity", _yvelo);//落ちるアニメーションの処理
+
+        _grounded = IsGrounded();
+        _anim.SetBool("IsGrounded", _grounded);//アニメーションに使う接地判定のbool
+
+        if(x < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+        else if(x > 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             ItemPickup();
@@ -53,9 +81,8 @@ public class Playermove : MonoBehaviour
     }
     void CheckGround()
     {
-        Vector2 origin = (Vector2)transform.position + Vector2.down * 0.1f;
-
-        RaycastHit2D hit = Physics2D.Raycast(
+        Vector2 origin = (Vector2)transform.position + Vector2.down * 1.5f;
+            RaycastHit2D hit = Physics2D.Raycast(
             origin,
             Vector2.down,
             rayLength,
@@ -86,7 +113,15 @@ public class Playermove : MonoBehaviour
     }
     void Dead()
     {
-        Debug.Log("playerが死んじゃった");
+        _isDead = true;
+        _anim.SetBool("IsDead", _isDead);
+    }
+
+    public void OnDeadAnimationEnd()
+    {
+        GameManager.instance.PlayerDead();
+        Destroy(gameObject);
+        Debug.Log("死んだのでリスポーン");
     }
 
     void OnTriggerEnter2D(Collider2D other)

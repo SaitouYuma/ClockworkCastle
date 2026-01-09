@@ -11,6 +11,10 @@ public class cameraaa : MonoBehaviour
         _fixedY = transform.position.y;      // ゲーム開始時のY位置を固定
     }
 
+    public void Settarget(GameObject target)
+    {
+        _target = target;
+    }
     void LateUpdate()
     {
         if (_target == null) return;
