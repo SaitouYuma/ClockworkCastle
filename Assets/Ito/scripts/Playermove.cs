@@ -121,7 +121,7 @@ public class Playermove : MonoBehaviour
     {
         GameManager.instance.PlayerDead();
         Destroy(gameObject);
-        Debug.Log("お前はもう死んでいる");
+        Debug.Log("死んだのでリスポーン");
     }
 
     void OnTriggerEnter2D(Collider2D other)

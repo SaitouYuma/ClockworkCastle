@@ -69,5 +69,6 @@ public class GameManager : MonoBehaviour
     public void Gameover()
     {
         SceneChanger(0);//ゲームオーバーシーンへ
+        Debug.Log("げーむおーばー");
     }
 }
