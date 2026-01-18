@@ -2,17 +2,26 @@ using UnityEngine;
 
 public class WheelRotator : MonoBehaviour
 {
-    public float speed = 30f; // ³‚Ì’l‚Å‚à•‰‚Ì’l‚Å‚àO
+    [SerializeField] float speed = 30f;
+    public Transform pivotPoint;
 
-    
+
     void Update()
     {
-        transform.Rotate(0, 0, speed * Time.deltaTime);
+        if (pivotPoint != null)
+        {
+            // pivotPoint‚ğ’†S‚É‰ñ“]
+            transform.RotateAround(pivotPoint.position, Vector3.forward, speed * Time.deltaTime);
+        }
+        else
+        {
+            // pivotPoint‚ª–¢İ’è‚È‚ç’Êí‚Ì‰ñ“]
+            transform.Rotate(0, 0, speed * Time.deltaTime);
+        }
     }
 
     public void Reverse()
     {
         speed = -speed;
     }
-    
 }
