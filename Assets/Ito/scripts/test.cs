@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D collsion)
     {
-        if (col.gameObject.CompareTag("Player"))
+        if (collsion.gameObject.CompareTag("Player"))
         {
-            Debug.Log("‚¢‚Á‚Ä‚¦‚¦‚¦‚¦");
-            col.gameObject.GetComponent<Playermove>().TakeDamage(1);
+            collsion.gameObject.GetComponent<Playermove>().TakeDamage(1);
         }
     }
 }
