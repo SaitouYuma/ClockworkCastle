@@ -131,7 +131,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -194,9 +194,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Playermove
   rayLength: 0.7
   _playerSpeed: 5
-  _playerJump: 5
+  _playerJump: 15
   _playerHp: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  gravitySwitch: {fileID: 0}
