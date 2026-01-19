@@ -28,6 +28,7 @@ public class Playermove : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(_grounded);
         _yvelo = _rb.linearVelocity.y;
         IsGrounded();
         Debug.Log(hit);
@@ -36,7 +37,16 @@ public class Playermove : MonoBehaviour
         _anim.SetFloat("Speed", Mathf.Abs(x));//走るアニメーションの処理
         if (Input.GetKeyDown(KeyCode.Space) && _grounded == true)
         {
-            _rb.linearVelocity = new Vector2(x * _playerSpeed, _playerJump);
+            if (gravitySwitch != null && gravitySwitch.IsGravityReversed)
+            {
+                // 重力反転中は下向きにジャンプ
+                _rb.linearVelocity = new Vector2(x * _playerSpeed, _playerJump * -1);
+            }
+            else
+            {
+                // 通常は上向きにジャンプ
+                _rb.linearVelocity = new Vector2(x * _playerSpeed, _playerJump);
+            }
             _anim.SetTrigger("Jump");
         }
 
@@ -106,9 +116,6 @@ public class Playermove : MonoBehaviour
             rayLength,
             groundLayer
         );
-        Debug.Log(_grounded);
-
-
 
         if (hit.collider != null && hit.collider.CompareTag("Wheelground"))
         {
@@ -128,6 +135,7 @@ public class Playermove : MonoBehaviour
         }
         _grounded = hit.collider != null;
         Debug.DrawRay(origin, _direction * rayLength, Color.red);
+        Debug.Log(_grounded);
     }
 
 
@@ -163,4 +171,5 @@ public class Playermove : MonoBehaviour
             device = null;
         }
     }
+    
 }
