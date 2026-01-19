@@ -3,21 +3,35 @@ using UnityEngine;
 
 public class GravityZone : MonoBehaviour
 {
-    [SerializeField] GravitySwitch gravitySwitch;
+    [SerializeField] private GravitySwitch gravitySwitch;
 
-    // ゾーン内にいるRigidbody管理
-    HashSet<Rigidbody2D> bodies = new HashSet<Rigidbody2D>();
+    // ゾーン内のRigidbody管理（元の重力も保存）
+    private Dictionary<Rigidbody2D, float> bodies = new Dictionary<Rigidbody2D, float>();
+    private bool lastSwitchState;
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void Start()
+    {
+        if (gravitySwitch != null)
+        {
+            lastSwitchState = gravitySwitch.IsOn;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Rigidbody2D rb = other.attachedRigidbody;
         if (rb == null) return;
 
-        bodies.Add(rb);
+        // 元の重力スケールを保存
+        if (!bodies.ContainsKey(rb))
+        {
+            bodies.Add(rb, Mathf.Abs(rb.gravityScale));
+        }
+
         ApplyGravity(rb);
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         Rigidbody2D rb = other.attachedRigidbody;
         if (rb == null) return;
@@ -26,29 +40,41 @@ public class GravityZone : MonoBehaviour
         bodies.Remove(rb);
     }
 
-    void Update()
+    private void Update()
     {
-        // スイッチ切替に即追従させる
-        foreach (var rb in bodies)
+        // スイッチの状態が変わったときだけ更新
+        if (gravitySwitch != null && gravitySwitch.IsOn != lastSwitchState)
         {
-            ApplyGravity(rb);
+            lastSwitchState = gravitySwitch.IsOn;
+
+            foreach (var pair in bodies)
+            {
+                ApplyGravity(pair.Key);
+            }
         }
     }
 
-    void ApplyGravity(Rigidbody2D rb)
+    private void ApplyGravity(Rigidbody2D rb)
     {
-        if (gravitySwitch.isOn)
+        if (!bodies.ContainsKey(rb)) return;
+
+        float originalScale = bodies[rb];
+
+        if (gravitySwitch != null && gravitySwitch.IsOn)
         {
-            rb.gravityScale = -Mathf.Abs(rb.gravityScale);
+            rb.gravityScale = -originalScale; // 反転
         }
         else
         {
-            rb.gravityScale = Mathf.Abs(rb.gravityScale);
+            rb.gravityScale = originalScale; // 通常
         }
     }
 
-    void RestoreGravity(Rigidbody2D rb)
+    private void RestoreGravity(Rigidbody2D rb)
     {
-        rb.gravityScale = Mathf.Abs(rb.gravityScale);
+        if (bodies.ContainsKey(rb))
+        {
+            rb.gravityScale = bodies[rb]; // 元の値に戻す
+        }
     }
 }

@@ -9,6 +9,8 @@ TagManager:
   - Wheelground
   - Device
   - GameManager
+  - Wall
+  - Press
   layers:
   - Default
   - TransparentFX
