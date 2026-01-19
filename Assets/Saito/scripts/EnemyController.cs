@@ -4,12 +4,13 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private GameObject _target;
     [SerializeField] private float speed = 1.0f;
-    private Transform _Tr;
-    private Rigidbody2D _Rb;
-    private float distanceOfPlayer = 0f;
     [SerializeField] private float _detectionrange = 10f;
     [SerializeField] private float _jumpRange = 2f;
     [SerializeField] private float _Jumpingpower = 300f;
+
+    private Transform _Tr;
+    private Rigidbody2D _Rb;
+    private float distanceOfPlayer = 0f;
     private bool _isGrounded = false;
 
     private void Start()
@@ -20,13 +21,19 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        Vector3 targetPos = new Vector3(_target.transform.position.x, _Tr.position.y, _Tr.position.z);
-        distanceOfPlayer = Vector3.Distance(targetPos, _Tr.position);
+        // ターゲットが存在しない場合は何もしない
+        if (_target == null) return;
+
+        // 上下を含めた実際の距離で感知
+        distanceOfPlayer = Vector2.Distance(_target.transform.position, _Tr.position);
+
         if (distanceOfPlayer < _detectionrange)
         {
+            // 移動は横方向のみ（Y座標は固定）
+            Vector3 targetPos = new Vector3(_target.transform.position.x, _Tr.position.y, _Tr.position.z);
             _Tr.position = Vector3.MoveTowards(_Tr.position, targetPos, speed * Time.deltaTime);
         }
-        
+
         if (distanceOfPlayer < _jumpRange && _isGrounded)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -51,5 +58,4 @@ public class EnemyController : MonoBehaviour
             _isGrounded = false;
         }
     }
-
 }

@@ -9,7 +9,7 @@ public class PressMachine : MonoBehaviour
     [SerializeField] float _pressDistance = 3f;
 
     Vector3 startPos;
-    bool _isActive = true;
+    bool _isActive = false;
 
     void Start()
     {
