@@ -7138,7 +7138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1577556971013560371, guid: 5503bf3612370c2478c42465823b0bdc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 36.74
+      value: -0.93
       objectReference: {fileID: 0}
     - target: {fileID: 1577556971013560371, guid: 5503bf3612370c2478c42465823b0bdc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7816,9 +7816,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b5bc951364438b4186825b030970b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  _playerPrefab: {fileID: 376028020}
+  _playerPrefab: {fileID: 3298113979362741311, guid: 5503bf3612370c2478c42465823b0bdc, type: 3}
   _playerstock: 3
   _checkPointPos: {x: -1, y: -1}
+  _playerlifeImage: []
 --- !u!4 &1503953085
 Transform:
   m_ObjectHideFlags: 0

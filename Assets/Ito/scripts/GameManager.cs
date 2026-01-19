@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] int _playerstock = 3;
     public Vector2 _checkPointPos;
-    cameraaa _camera;
+    [SerializeField] Image [] _playerlifeImage;
 
     private void Awake()
     {
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour
     {
         _playerstock--;
         Debug.Log("残りストックは" + _playerstock);
+       // Hpupdate();
         if (_playerstock > 0)
         {
             Respawn();
@@ -64,6 +66,20 @@ public class GameManager : MonoBehaviour
 
         cameraaa cam = Camera.main.GetComponent<cameraaa>();
         cam.Settarget(_currentplayer);
+    }
+    void Hpupdate()
+    {
+        for(int i = 0;i<_playerlifeImage.Length;i++)
+        {
+            if (i < _playerstock)
+            {
+                _playerlifeImage[i].enabled = true;   // 表示
+            }
+            else
+            {
+                _playerlifeImage[i].enabled = false;  // 非表示
+            }
+        }
     }
 
     public void Gameover()

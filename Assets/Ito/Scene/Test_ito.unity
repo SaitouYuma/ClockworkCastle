@@ -175,6 +175,7 @@ MonoBehaviour:
   _playerPrefab: {fileID: 3298113979362741311, guid: 5503bf3612370c2478c42465823b0bdc, type: 3}
   _playerstock: 3
   _checkPointPos: {x: 0, y: 0}
+  _playerlifeImage: {fileID: 0}
 --- !u!4 &105862416
 Transform:
   m_ObjectHideFlags: 0
