@@ -7,7 +7,6 @@ public class Playermove : MonoBehaviour
     [SerializeField] float _playerJump = 10f;
     [SerializeField] int _playerHp = 1;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] GravitySwitch gravitySwitch;
     Animator _anim;
     Rigidbody2D _rb;
     private float x;
@@ -28,16 +27,14 @@ public class Playermove : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(_grounded);
         _yvelo = _rb.linearVelocity.y;
         IsGrounded();
-        Debug.Log(hit);
         x = Input.GetAxis("Horizontal");
         _rb.linearVelocity = new Vector2(x * _playerSpeed, _yvelo);
         _anim.SetFloat("Speed", Mathf.Abs(x));//走るアニメーションの処理
         if (Input.GetKeyDown(KeyCode.Space) && _grounded == true)
         {
-            if (gravitySwitch != null && gravitySwitch.IsGravityReversed)
+            if (GravitySwitch.Instance != null && GravitySwitch.Instance.IsGravityReversed)
             {
                 // 重力反転中は下向きにジャンプ
                 _rb.linearVelocity = new Vector2(x * _playerSpeed, _playerJump * -1);
@@ -73,10 +70,10 @@ public class Playermove : MonoBehaviour
         }
 
         // 親子関係がない時だけスケールを設定
-        if (gravitySwitch == null) return;
+        if (GravitySwitch.Instance == null) return;
         if (currentGround == null) // ← この条件を追加
         {
-            if (gravitySwitch.IsGravityReversed)
+            if (GravitySwitch.Instance.IsGravityReversed)
             {
                 transform.localScale = new Vector3(4, -4, 1);
             }
@@ -97,9 +94,9 @@ public class Playermove : MonoBehaviour
     void IsGrounded()
     {
         
-        if (gravitySwitch == null) return;
+        if (GravitySwitch.Instance == null) return;
 
-        if (!gravitySwitch.IsGravityReversed)//反転してなかったら
+        if (!GravitySwitch.Instance.IsGravityReversed)//反転してなかったら
         {
             origin = (Vector2)transform.position + Vector2.down * 1.7f;
             _direction = Vector2.down;
