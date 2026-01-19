@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 public class Playermove : MonoBehaviour
 {
     Transform currentGround;
@@ -8,6 +9,7 @@ public class Playermove : MonoBehaviour
     [SerializeField] float _playerJump = 10f;
     [SerializeField] int _playerHp = 1;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] GravitySwitch gravitySwitch;
     Animator _anim;
     Rigidbody2D _rb;
     private float x;
@@ -104,6 +106,14 @@ public class Playermove : MonoBehaviour
                 transform.SetParent(null);
                 currentGround = null;
             }
+        }
+        if (gravitySwitch.isOn)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        if (gravitySwitch.isOn!)
+        {
+            transform.localScale = new Vector3(1, -1, 1);
         }
     }
 
