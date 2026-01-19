@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 public class Playermove : MonoBehaviour
 {
     Transform currentGround;
@@ -17,33 +15,26 @@ public class Playermove : MonoBehaviour
     DeviceController device;
     bool _grounded;
     bool _isDead;
-    Vector2 _origin;
+    Vector2 origin;
+    Vector2 _direction;
+    RaycastHit2D hit;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
     }
 
-    bool IsGrounded()
-    {
-        _origin = (Vector2)transform.position + Vector2.down * 1.5f;
-        RaycastHit2D hit = Physics2D.Raycast(
-            _origin,
-            Vector2.down,
-            rayLength,
-            groundLayer
-        );
-        return hit.collider != null;
-    }
+
 
     void Update()
     {
         _yvelo = _rb.linearVelocity.y;
-        CheckGround();
+        IsGrounded();
+        Debug.Log(hit);
         x = Input.GetAxis("Horizontal");
         _rb.linearVelocity = new Vector2(x * _playerSpeed, _yvelo);
         _anim.SetFloat("Speed", Mathf.Abs(x));//走るアニメーションの処理
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() == true)
+        if (Input.GetKeyDown(KeyCode.Space) && _grounded == true)
         {
             _rb.linearVelocity = new Vector2(x * _playerSpeed, _playerJump);
             _anim.SetTrigger("Jump");
@@ -51,14 +42,13 @@ public class Playermove : MonoBehaviour
 
         _anim.SetFloat("Yvelocity", _yvelo);//落ちるアニメーションの処理
 
-        _grounded = IsGrounded();
         _anim.SetBool("IsGrounded", _grounded);//アニメーションに使う接地判定のbool
 
-        if(x < 0)
+        if (x < 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
-        else if(x > 0)
+        else if (x > 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
@@ -67,11 +57,24 @@ public class Playermove : MonoBehaviour
         {
             ItemPickup();
         }
-        if(device != null && Input.GetKeyDown(KeyCode.F))
-        { 
+        if (device != null && Input.GetKeyDown(KeyCode.F))
+        {
             device.Activate();
         }
 
+        // 親子関係がない時だけスケールを設定
+        if (gravitySwitch == null) return;
+        if (currentGround == null) // ← この条件を追加
+        {
+            if (gravitySwitch.IsGravityReversed)
+            {
+                transform.localScale = new Vector3(4, -4, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(4, 4, 1);
+            }
+        }
     }
     public void TakeDamage(int damage)
     {
@@ -81,21 +84,37 @@ public class Playermove : MonoBehaviour
             Dead();
         }
     }
-    void CheckGround()
+    void IsGrounded()
     {
-        Vector2 origin = (Vector2)transform.position + Vector2.down * 1.5f;
-            RaycastHit2D hit = Physics2D.Raycast(
+        
+        if (gravitySwitch == null) return;
+
+        if (!gravitySwitch.IsGravityReversed)//反転してなかったら
+        {
+            origin = (Vector2)transform.position + Vector2.down * 1.7f;
+            _direction = Vector2.down;
+        }
+        else//反転したら
+        {
+            origin = (Vector2)transform.position + Vector2.up * 1.7f;
+            _direction = Vector2.up;
+        }
+
+        hit = Physics2D.Raycast(
             origin,
-            Vector2.down,
+            _direction,
             rayLength,
             groundLayer
         );
+        Debug.Log(_grounded);
+
+
 
         if (hit.collider != null && hit.collider.CompareTag("Wheelground"))
         {
             if (currentGround != hit.transform)
             {
-                transform.SetParent(hit.transform);
+                transform.SetParent(hit.transform, true);
                 currentGround = hit.transform;
             }
         }
@@ -107,15 +126,10 @@ public class Playermove : MonoBehaviour
                 currentGround = null;
             }
         }
-        if (gravitySwitch.isOn)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        if (gravitySwitch.isOn!)
-        {
-            transform.localScale = new Vector3(1, -1, 1);
-        }
+        _grounded = hit.collider != null;
+        Debug.DrawRay(origin, _direction * rayLength, Color.red);
     }
+
 
     void ItemPickup()
     {

@@ -9,7 +9,23 @@ public class FadeManager : MonoBehaviour
     public bool Out = false;
     public bool In = false;
 
+    public static FadeManager instance;
+
     Image fadeImage;                //ƒpƒlƒ‹
+
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
