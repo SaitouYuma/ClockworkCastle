@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] int _playerstock = 3;
     public Vector2 _checkPointPos;
-    cameraaa _camera;
+    [SerializeField] Image [] _playerlifeImage;
 
     private void Awake()
     {
