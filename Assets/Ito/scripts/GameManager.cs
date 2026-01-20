@@ -47,7 +47,6 @@ public class GameManager : MonoBehaviour
     public void PlayerDead()
     {
         _playerstock--;
-        Debug.Log("残りストックは" + _playerstock);
         Hpupdate();
         if (_playerstock > 0)
         {
