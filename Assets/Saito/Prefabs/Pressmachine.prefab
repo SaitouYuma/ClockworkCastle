@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 3951614987031487041}
   - component: {fileID: 2683325122111756545}
   - component: {fileID: 5884786595566570340}
+  - component: {fileID: 4442646707104086133}
   m_Layer: 0
   m_Name: Pressmachine
-  m_TagString: Untagged
+  m_TagString: Press
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,4 +182,16 @@ MonoBehaviour:
   _downSpeed: 10
   _upSpeed: 10
   _waitTime: 0
-  _pressDistance: 4
+  _pressDistance: -6
+--- !u!114 &4442646707104086133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685823737793281367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add95c120e7ce5641a3032b45105be30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::test
