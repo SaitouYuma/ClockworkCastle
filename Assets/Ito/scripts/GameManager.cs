@@ -48,10 +48,14 @@ public class GameManager : MonoBehaviour
     {
         _playerstock--;
         Debug.Log("残りストックは" + _playerstock);
-       // Hpupdate();
+        Hpupdate();
         if (_playerstock > 0)
         {
             Respawn();
+            if (GravitySwitch.Instance != null && GravitySwitch.Instance.IsGravityReversed)
+            {
+                GravitySwitch.Instance.SetOn(false);
+            }
         }
         else
         {
