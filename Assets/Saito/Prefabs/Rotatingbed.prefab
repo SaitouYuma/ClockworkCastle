@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1718850032674073801}
   - component: {fileID: 1080773282263354279}
   - component: {fileID: 4013908715893830702}
+  - component: {fileID: 6878783771781917685}
   m_Layer: 0
   m_Name: Rotatingbed
   m_TagString: Device
@@ -154,3 +155,25 @@ MonoBehaviour:
   leverVisual: {fileID: 2016725690200619010}
   onAngle: 180
   offAngle: 0
+  onPivotPosition: {x: 15, y: 7.5, z: 0}
+  offPivotPosition: {x: 5, y: -1, z: 0}
+  pivotMoveSpeed: 1
+--- !u!114 &6878783771781917685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4799152472206579901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd23292901e07cf4385a8cabff99d76d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PivotPathVisualizer
+  onPivotPosition: {x: 0, y: 0, z: 0}
+  offPivotPosition: {x: 0, y: 0, z: 0}
+  pathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  pathWidth: 0.05
+  showDirection: 1
+  arrowSize: 0.3
+  arrowCount: 3

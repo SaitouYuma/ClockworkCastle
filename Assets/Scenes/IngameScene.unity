@@ -6031,6 +6031,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rotatingbed
       objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: pathColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: pathColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: pathColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: onPivotPosition.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: onPivotPosition.y
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: offPivotPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: offPivotPosition.y
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7314,7 +7342,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1577556971013560371, guid: 5503bf3612370c2478c42465823b0bdc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.8
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1577556971013560371, guid: 5503bf3612370c2478c42465823b0bdc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7889,6 +7917,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rotatingbed (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: pathColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: pathColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: pathColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: onPivotPosition.x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: onPivotPosition.y
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: offPivotPosition.x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: offPivotPosition.y
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7984,6 +8040,34 @@ PrefabInstance:
     - target: {fileID: 4799152472206579901, guid: a35631d95383d564083b6eede90cb997, type: 3}
       propertyPath: m_Name
       value: Rotatingbed (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: pathColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: pathColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: pathColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: onPivotPosition.x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: onPivotPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: offPivotPosition.x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: offPivotPosition.y
+      value: 33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9744,6 +9828,34 @@ PrefabInstance:
     - target: {fileID: 4799152472206579901, guid: a35631d95383d564083b6eede90cb997, type: 3}
       propertyPath: m_Name
       value: Rotatingbed (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: pathColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: pathColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: pathColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: onPivotPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: onPivotPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: offPivotPosition.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: offPivotPosition.y
+      value: 7.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
