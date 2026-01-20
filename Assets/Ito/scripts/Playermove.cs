@@ -132,7 +132,6 @@ public class Playermove : MonoBehaviour
         }
         _grounded = hit.collider != null;
         Debug.DrawRay(origin, _direction * rayLength, Color.red);
-        Debug.Log(_grounded);
     }
 
 
