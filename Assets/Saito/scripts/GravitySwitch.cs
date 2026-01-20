@@ -3,7 +3,8 @@ using UnityEngine;
 public class GravitySwitch : MonoBehaviour
 {
     // シングルトン
-    public static GravitySwitch Instance { get; private set; }
+    public static GravitySwitch Instance { get;set; }
+
 
     [SerializeField] private bool isOn;
 
@@ -12,6 +13,8 @@ public class GravitySwitch : MonoBehaviour
 
     // 外部から状態を確認できる（従来の方法）
     public bool IsOn => isOn;
+
+
 
     private void Awake()
     {
@@ -35,4 +38,5 @@ public class GravitySwitch : MonoBehaviour
     {
         isOn = value;
     }
+   
 }

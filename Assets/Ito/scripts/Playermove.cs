@@ -71,7 +71,7 @@ public class Playermove : MonoBehaviour
 
         // 親子関係がない時だけスケールを設定
         if (GravitySwitch.Instance == null) return;
-        if (currentGround == null) // ← この条件を追加
+        if (currentGround == null)
         {
             if (GravitySwitch.Instance.IsGravityReversed)
             {
@@ -150,7 +150,6 @@ public class Playermove : MonoBehaviour
     {
         GameManager.instance.PlayerDead();
         Destroy(gameObject);
-        Debug.Log("死んだのでリスポーン");
     }
 
     void OnTriggerEnter2D(Collider2D other)
