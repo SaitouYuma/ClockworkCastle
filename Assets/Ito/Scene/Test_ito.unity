@@ -659,8 +659,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa145116c0c8c3440b667892d729bfe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  BGM: {fileID: 398773852}
-  SE: {fileID: 398773851}
+  _bgmSource: {fileID: 398773852}
+  _seSource: {fileID: 398773851}
+  _bgmList: []
+  _seList: []
 --- !u!4 &398773854
 Transform:
   m_ObjectHideFlags: 0
