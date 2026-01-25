@@ -1,0 +1,10 @@
+using UnityEngine;
+
+[System.Serializable]
+public class BGMData
+{
+    public string key;       // ñºëO
+    public AudioClip clip;   // é¿ç€ÇÃâπê∫
+    public bool loop = true;
+    public float volume = 1f;
+}
