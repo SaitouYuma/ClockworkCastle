@@ -662,7 +662,10 @@ MonoBehaviour:
   _bgmSource: {fileID: 398773852}
   _seSource: {fileID: 398773851}
   _bgmList: []
-  _seList: []
+  _seList:
+  - key: Lever
+    clip: {fileID: 8300000, guid: 10ebf84611c53ca48ba75c16a692657e, type: 3}
+    volume: 1
 --- !u!4 &398773854
 Transform:
   m_ObjectHideFlags: 0

@@ -28,6 +28,7 @@ public class GravityLeverSwitch : MonoBehaviour
 
         // 重力スイッチのON/OFF
         targetGravitySwitch.Toggle();
+        AudioManager.instance.PlaySE("Lever");
 
         // レバーの向きを変える
         FlipLever();
