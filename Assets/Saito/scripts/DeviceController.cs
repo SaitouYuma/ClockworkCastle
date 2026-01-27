@@ -25,6 +25,7 @@ public class DeviceController : MonoBehaviour
         // ƒŒƒo[‚ÌŒü‚«‚ğØ‚è‘Ö‚¦
         float angle = isOn ? onAngle : offAngle;
         leverVisual.localRotation = Quaternion.Euler(0, angle, 0);
+        AudioManager.instance.PlaySE("Lever");
 
         if (targetWheel != null)
         {

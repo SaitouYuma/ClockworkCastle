@@ -30,6 +30,7 @@ public class TrapdoorLever : MonoBehaviour
         targetTrapdoor.Disappear();
 
         // ƒŒƒo[‚ÌŒü‚«‚ğ•Ï‚¦‚é
+        AudioManager.instance.PlaySE("Lever");
         FlipLever();
 
         yield return new WaitForSeconds(coolTime);
