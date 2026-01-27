@@ -11,7 +11,7 @@ public class PivotPathVisualizer : MonoBehaviour
     [SerializeField] int arrowCount = 3;
     [SerializeField] float arrowSize = 0.3f;
     [SerializeField] Material lineMaterial; // 線用のマテリアル
-    [SerializeField] int sortingOrder = -100; // 描画順序（小さいほど後ろ）
+    [SerializeField] int sortingOrder = -100; // 描画順序(小さいほど後ろ)
 
     private LineRenderer pathLine;
     private GameObject arrowsParent;
@@ -59,6 +59,12 @@ public class PivotPathVisualizer : MonoBehaviour
 
     void CreateArrows()
     {
+        // 既存の矢印を削除
+        if (arrowsParent != null)
+        {
+            Destroy(arrowsParent);
+        }
+
         arrowsParent = new GameObject("Arrows");
         arrowsParent.transform.SetParent(transform);
 
@@ -113,6 +119,8 @@ public class PivotPathVisualizer : MonoBehaviour
         arrowLine.sortingOrder = sortingOrder;
     }
 
+    // OnValidateを完全にコメントアウト
+    /*
     void OnValidate()
     {
         // エディタで値を変更したときに更新
@@ -121,8 +129,9 @@ public class PivotPathVisualizer : MonoBehaviour
             UpdatePath();
         }
     }
+    */
 
-    void UpdatePath()
+    public void UpdatePath()
     {
         if (pathLine != null)
         {
@@ -132,16 +141,17 @@ public class PivotPathVisualizer : MonoBehaviour
             pathLine.endColor = pathColor;
             pathLine.startWidth = lineWidth;
             pathLine.endWidth = lineWidth;
+            pathLine.sortingOrder = sortingOrder;
         }
 
-        if (arrowsParent != null)
-        {
-            Destroy(arrowsParent);
-        }
-
-        if (showDirection && Application.isPlaying)
+        if (showDirection)
         {
             CreateArrows();
+        }
+        else if (arrowsParent != null)
+        {
+            Destroy(arrowsParent);
+            arrowsParent = null;
         }
     }
 }
