@@ -1488,29 +1488,8 @@ PrefabInstance:
       propertyPath: _flag
       value: 
       objectReference: {fileID: 570924533}
-    - target: {fileID: 8956298567478966382, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
-      propertyPath: _checkpoint
-      value: 
-      objectReference: {fileID: 570924533}
-    - target: {fileID: 8956298567478966382, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
-      propertyPath: _checkpointed
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8981955457537294546, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8981955457537294546, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8981955457537294546, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 7873964298232032239, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}

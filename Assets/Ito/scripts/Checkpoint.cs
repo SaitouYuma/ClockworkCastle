@@ -18,7 +18,6 @@ public class Checkpoint : MonoBehaviour
         {
             _gm._checkPointPos = transform.position;
             _flag.color = Color.white;
-            Debug.Log("チェックポインツ！");
             _ischeck = true;
         }
     }
