@@ -5763,6 +5763,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5851936078010301327, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6197,7 +6201,7 @@ MonoBehaviour:
   _bgmList: []
   _seList:
   - key: Lever
-    clip: {fileID: 8300000, guid: 128b983688af20a4e821242165c250eb, type: 3}
+    clip: {fileID: 8300000, guid: 10ebf84611c53ca48ba75c16a692657e, type: 3}
     volume: 1
 --- !u!4 &477186453
 Transform:
@@ -7589,11 +7593,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1577556971013560371, guid: 5503bf3612370c2478c42465823b0bdc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 1577556971013560371, guid: 5503bf3612370c2478c42465823b0bdc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 34.8
+      value: 34.4
       objectReference: {fileID: 0}
     - target: {fileID: 1577556971013560371, guid: 5503bf3612370c2478c42465823b0bdc, type: 3}
       propertyPath: m_LocalPosition.z
