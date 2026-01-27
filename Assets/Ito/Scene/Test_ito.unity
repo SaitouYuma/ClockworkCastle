@@ -697,11 +697,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
---- !u!212 &720333068 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4497940884602983510, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
-  m_PrefabInstance: {fileID: 1266945611913845972}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &737597244 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4745651887008852659, guid: b7aec72f4d24b7f48a6d0c400376adad, type: 3}
@@ -1436,18 +1431,26 @@ PrefabInstance:
     - target: {fileID: 3739506413969363838, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7590838682286993775, guid: 862b40d28afa3c94fbc03f6652069a5e, type: 3}
     - target: {fileID: 3739506413969363838, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246544996145145553, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246544996145145553, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5246544996145145553, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.511
+      value: 16.459
       objectReference: {fileID: 0}
     - target: {fileID: 5246544996145145553, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.874
+      value: -4.088
       objectReference: {fileID: 0}
     - target: {fileID: 5246544996145145553, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1482,15 +1485,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8956298567478966382, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
+      propertyPath: _flag
+      value: 
+      objectReference: {fileID: 570924533}
+    - target: {fileID: 8956298567478966382, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
       propertyPath: _checkpoint
       value: 
       objectReference: {fileID: 570924533}
     - target: {fileID: 8956298567478966382, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
       propertyPath: _checkpointed
       value: 
-      objectReference: {fileID: 720333068}
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981955457537294546, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981955457537294546, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981955457537294546, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7873964298232032239, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f06a3f14dcb454f99eaa84daafef5b, type: 3}
