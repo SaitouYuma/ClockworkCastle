@@ -27,6 +27,7 @@ public class LeverSwitch : MonoBehaviour
 
         // ƒvƒŒƒX‹@‚ÌON/OFF
         targetPressMachine.Toggle();
+        AudioManager.instance.PlaySE("Lever");
 
         FlipLever();
 

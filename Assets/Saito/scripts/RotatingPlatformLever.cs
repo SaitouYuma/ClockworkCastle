@@ -31,6 +31,7 @@ public class RotatingPlatformLever : MonoBehaviour
 
         // ƒŒƒo[‚ÌŒü‚«‚ğ•Ï‚¦‚é
         FlipLever();
+        AudioManager.instance.PlaySE("Lever");
 
         yield return new WaitForSeconds(coolTime);
         canInteract = true;
