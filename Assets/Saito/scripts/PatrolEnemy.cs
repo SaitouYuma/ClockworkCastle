@@ -36,6 +36,9 @@ public class PatrolEnemy : MonoBehaviour
                 // 法線が横向き（左右）の場合のみ折り返す
                 if (Mathf.Abs(contact.normal.x) > 0.5f)
                 {
+                    Vector3 scale = transform.localScale;
+                    scale.x *= -1;
+                    transform.localScale = scale;
                     direction *= -1f;
                     break;
                 }
