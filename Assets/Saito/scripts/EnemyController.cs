@@ -51,6 +51,15 @@ public class EnemyController : MonoBehaviour
                 _Rb.AddForce(Vector2.up * _Jumpingpower);
             }
         }
+        float dx = transform.position.x - _target.transform.position.x;
+        if(dx <= 1)
+        {
+            _Tr.localScale = new Vector3 (9,9,0);
+        }
+        else
+        {
+            _Tr.localScale = new Vector3(-9, 9, 0);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
