@@ -53389,12 +53389,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1448471756 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7680520672773851989, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3467339647513040923, guid: 35926472bdc8782409aba88bcc3e351e, type: 3}
   m_PrefabInstance: {fileID: 1670757057}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1448471766 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1816462915082420078, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4881225485070511136, guid: 35926472bdc8782409aba88bcc3e351e, type: 3}
   m_PrefabInstance: {fileID: 1670757057}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1451516839
@@ -55173,55 +55173,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581174646}
     m_Modifications:
-    - target: {fileID: 1816462915082420078, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
+    - target: {fileID: 3467339647513040923, guid: 35926472bdc8782409aba88bcc3e351e, type: 3}
+      propertyPath: m_Name
+      value: PatrolEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881225485070511136, guid: 35926472bdc8782409aba88bcc3e351e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -48.63986
       objectReference: {fileID: 0}
-    - target: {fileID: 1816462915082420078, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
+    - target: {fileID: 4881225485070511136, guid: 35926472bdc8782409aba88bcc3e351e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -1.2774696
       objectReference: {fileID: 0}
-    - target: {fileID: 1816462915082420078, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
+    - target: {fileID: 4881225485070511136, guid: 35926472bdc8782409aba88bcc3e351e, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1816462915082420078, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
+    - target: {fileID: 4881225485070511136, guid: 35926472bdc8782409aba88bcc3e351e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1816462915082420078, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
+    - target: {fileID: 4881225485070511136, guid: 35926472bdc8782409aba88bcc3e351e, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 1816462915082420078, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
+    - target: {fileID: 4881225485070511136, guid: 35926472bdc8782409aba88bcc3e351e, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 1816462915082420078, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
+    - target: {fileID: 4881225485070511136, guid: 35926472bdc8782409aba88bcc3e351e, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 1816462915082420078, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
+    - target: {fileID: 4881225485070511136, guid: 35926472bdc8782409aba88bcc3e351e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1816462915082420078, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
+    - target: {fileID: 4881225485070511136, guid: 35926472bdc8782409aba88bcc3e351e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1816462915082420078, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
+    - target: {fileID: 4881225485070511136, guid: 35926472bdc8782409aba88bcc3e351e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7680520672773851989, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
-      propertyPath: m_Name
-      value: PatrolEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 35926472bdc8782409aba88bcc3e351e, type: 3}
 --- !u!4 &1672798224 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2016725690200619010, guid: a35631d95383d564083b6eede90cb997, type: 3}
