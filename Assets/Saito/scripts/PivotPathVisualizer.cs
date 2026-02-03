@@ -3,145 +3,85 @@ using UnityEngine;
 public class PivotPathVisualizer : MonoBehaviour
 {
     [Header("経路表示設定")]
-    [SerializeField] Vector3 onPivotPosition;
-    [SerializeField] Vector3 offPivotPosition;
+    [SerializeField] Vector3 startPosition; // 開始位置（ワールド座標）
+    [SerializeField] Vector3 endPosition;   // 終了位置（ワールド座標）
     [SerializeField] Color pathColor = Color.gray;
     [SerializeField] float lineWidth = 0.1f;
-    [SerializeField] bool showDirection = true;
-    [SerializeField] int arrowCount = 3;
-    [SerializeField] float arrowSize = 0.3f;
-    [SerializeField] Material lineMaterial; // 線用のマテリアル
-    [SerializeField] int sortingOrder = -100; // 描画順序（小さいほど後ろ）
+    [SerializeField] int sortingOrder = -100;
 
-    private LineRenderer pathLine;
-    private GameObject arrowsParent;
+    [Header("スプライト設定")]
+    [SerializeField] Sprite pipeSprite;
+
+    private GameObject pipeObject;
 
     void Start()
     {
         CreatePathLine();
-        if (showDirection)
-        {
-            CreateArrows();
-        }
     }
 
     void CreatePathLine()
     {
-        // LineRendererを作成
-        GameObject lineObj = new GameObject("PivotPath");
-        lineObj.transform.SetParent(transform);
-        pathLine = lineObj.AddComponent<LineRenderer>();
+        pipeObject = new GameObject("PivotPath");
+        // 親を設定しない（ワールド座標で固定）
 
-        // LineRendererの設定
-        pathLine.startWidth = lineWidth;
-        pathLine.endWidth = lineWidth;
-        pathLine.positionCount = 2;
-        pathLine.SetPosition(0, offPivotPosition);
-        pathLine.SetPosition(1, onPivotPosition);
-        pathLine.startColor = pathColor;
-        pathLine.endColor = pathColor;
+        SpriteRenderer sr = pipeObject.AddComponent<SpriteRenderer>();
 
-        // マテリアルの設定
-        if (lineMaterial != null)
+        if (pipeSprite != null)
         {
-            pathLine.material = lineMaterial;
+            sr.sprite = pipeSprite;
         }
         else
         {
-            // デフォルトマテリアルを作成
-            pathLine.material = new Material(Shader.Find("Sprites/Default"));
-            pathLine.material.color = pathColor;
+            sr.sprite = CreateGearChainSprite();
         }
 
-        pathLine.useWorldSpace = true;
-        pathLine.sortingOrder = sortingOrder;
+        sr.color = pathColor;
+        sr.sortingOrder = sortingOrder;
+
+        // 位置とサイズを設定
+        Vector3 center = (startPosition + endPosition) / 2f;
+        float distance = Vector3.Distance(startPosition, endPosition);
+        Vector3 direction = (endPosition - startPosition).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        pipeObject.transform.position = center;
+        pipeObject.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+        pipeObject.transform.localScale = new Vector3(lineWidth, distance, 1);
     }
 
-    void CreateArrows()
+    Sprite CreateGearChainSprite()
     {
-        arrowsParent = new GameObject("Arrows");
-        arrowsParent.transform.SetParent(transform);
+        int width = 64;
+        int height = 64;
+        Texture2D texture = new Texture2D(width, height);
 
-        Vector3 direction = (onPivotPosition - offPivotPosition).normalized;
-        Vector3 right = Vector3.Cross(direction, Vector3.up);
-        if (right.magnitude < 0.1f)
+        for (int y = 0; y < height; y++)
         {
-            right = Vector3.Cross(direction, Vector3.right);
-        }
-        right = right.normalized;
+            for (int x = 0; x < width; x++)
+            {
+                Color color = Color.clear;
 
-        for (int i = 1; i <= arrowCount; i++)
-        {
-            float t = i / (float)(arrowCount + 1);
-            Vector3 arrowPos = Vector3.Lerp(offPivotPosition, onPivotPosition, t);
-            CreateArrow(arrowPos, direction, right);
-        }
-    }
+                if (x > width * 0.3f && x < width * 0.7f)
+                {
+                    color = new Color(0.4f, 0.4f, 0.45f);
+                }
 
-    void CreateArrow(Vector3 position, Vector3 direction, Vector3 right)
-    {
-        GameObject arrowObj = new GameObject("Arrow");
-        arrowObj.transform.SetParent(arrowsParent.transform);
+                int segment = (y / 8) % 2;
+                if (segment == 0 && (x < width * 0.2f || x > width * 0.8f))
+                {
+                    color = new Color(0.3f, 0.3f, 0.35f);
+                }
 
-        LineRenderer arrowLine = arrowObj.AddComponent<LineRenderer>();
-        arrowLine.startWidth = lineWidth * 0.7f;
-        arrowLine.endWidth = lineWidth * 0.7f;
-        arrowLine.positionCount = 3;
+                if (x == (int)(width * 0.3f) || x == (int)(width * 0.7f))
+                {
+                    color = new Color(0.6f, 0.6f, 0.65f);
+                }
 
-        Vector3 tip = position + direction * arrowSize * 0.5f;
-        Vector3 left = position - direction * arrowSize * 0.5f + right * arrowSize * 0.3f;
-        Vector3 rightPoint = position - direction * arrowSize * 0.5f - right * arrowSize * 0.3f;
-
-        arrowLine.SetPosition(0, left);
-        arrowLine.SetPosition(1, tip);
-        arrowLine.SetPosition(2, rightPoint);
-
-        arrowLine.startColor = pathColor;
-        arrowLine.endColor = pathColor;
-
-        if (lineMaterial != null)
-        {
-            arrowLine.material = lineMaterial;
-        }
-        else
-        {
-            arrowLine.material = new Material(Shader.Find("Sprites/Default"));
-            arrowLine.material.color = pathColor;
+                texture.SetPixel(x, y, color);
+            }
         }
 
-        arrowLine.useWorldSpace = true;
-        arrowLine.sortingOrder = sortingOrder;
-    }
-
-    void OnValidate()
-    {
-        // エディタで値を変更したときに更新
-        if (Application.isPlaying)
-        {
-            UpdatePath();
-        }
-    }
-
-    void UpdatePath()
-    {
-        if (pathLine != null)
-        {
-            pathLine.SetPosition(0, offPivotPosition);
-            pathLine.SetPosition(1, onPivotPosition);
-            pathLine.startColor = pathColor;
-            pathLine.endColor = pathColor;
-            pathLine.startWidth = lineWidth;
-            pathLine.endWidth = lineWidth;
-        }
-
-        if (arrowsParent != null)
-        {
-            Destroy(arrowsParent);
-        }
-
-        if (showDirection && Application.isPlaying)
-        {
-            CreateArrows();
-        }
+        texture.Apply();
+        return Sprite.Create(texture, new Rect(0, 0, width, height), new Vector2(0.5f, 0.5f), 100);
     }
 }

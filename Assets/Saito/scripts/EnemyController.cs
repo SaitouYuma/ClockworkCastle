@@ -21,8 +21,18 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        // ターゲットが存在しない場合は何もしない
-        if (_target == null) return;
+        if (_target == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                _target = player;
+            }
+            else
+            {
+                return; // プレイヤーが見つからない場合は何もしない
+            }
+        }
 
         // 上下を含めた実際の距離で感知
         distanceOfPlayer = Vector2.Distance(_target.transform.position, _Tr.position);
