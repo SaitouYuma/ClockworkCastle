@@ -50376,6 +50376,10 @@ PrefabInstance:
       value: Rotatingbed
       objectReference: {fileID: 0}
     - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: lineWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
       propertyPath: pathColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -50386,6 +50390,22 @@ PrefabInstance:
     - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
       propertyPath: pathColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: endPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: endPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: startPosition.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: startPosition.y
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
       propertyPath: onPivotPosition.x
@@ -52817,6 +52837,10 @@ PrefabInstance:
       value: Rotatingbed (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: lineWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
       propertyPath: pathColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -52827,6 +52851,22 @@ PrefabInstance:
     - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
       propertyPath: pathColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: endPosition.x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: endPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: startPosition.x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: startPosition.y
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
       propertyPath: onPivotPosition.x
@@ -52941,6 +52981,10 @@ PrefabInstance:
       value: Rotatingbed (3)
       objectReference: {fileID: 0}
     - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: lineWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
       propertyPath: pathColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -52951,6 +52995,22 @@ PrefabInstance:
     - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
       propertyPath: pathColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: endPosition.x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: endPosition.y
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: startPosition.x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: startPosition.y
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
       propertyPath: onPivotPosition.x
@@ -54995,6 +55055,10 @@ PrefabInstance:
       value: Rotatingbed (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: lineWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
       propertyPath: pathColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -55005,6 +55069,22 @@ PrefabInstance:
     - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
       propertyPath: pathColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: endPosition.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: endPosition.y
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: startPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
+      propertyPath: startPosition.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6878783771781917685, guid: a35631d95383d564083b6eede90cb997, type: 3}
       propertyPath: onPivotPosition.x
