@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Start()
+    {
+        AudioManager.instance.PlayBGM(SceneManager.GetActiveScene().name);
+    }
     public enum GameState
     {
         Title,
@@ -87,7 +91,20 @@ public class GameManager : MonoBehaviour
 
     public void Gameover()
     {
-        SceneChanger(0);//ゲームオーバーシーンへ
+        SceneChanger(3);//ゲームオーバーシーンへ
         Debug.Log("げーむおーばー");
+    }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        AudioManager.instance.PlayBGM(scene.name);
     }
 }
