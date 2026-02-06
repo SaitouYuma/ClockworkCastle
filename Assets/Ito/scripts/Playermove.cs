@@ -38,11 +38,13 @@ public class Playermove : MonoBehaviour
             {
                 // 重力反転中は下向きにジャンプ
                 _rb.linearVelocity = new Vector2(x * _playerSpeed, _playerJump * -1);
+                AudioManager.instance.PlaySE("jump");
             }
             else
             {
                 // 通常は上向きにジャンプ
                 _rb.linearVelocity = new Vector2(x * _playerSpeed, _playerJump);
+                AudioManager.instance.PlaySE("jump");
             }
             _anim.SetTrigger("Jump");
         }
@@ -88,6 +90,7 @@ public class Playermove : MonoBehaviour
         _playerHp -= damage;
         if (_playerHp <= 0)
         {
+            AudioManager.instance.PlaySE("Dead");
             Dead();
         }
     }
