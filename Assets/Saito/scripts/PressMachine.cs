@@ -28,6 +28,7 @@ public class PressMachine : MonoBehaviour
 
             // ‰Ÿ‚µ’×‚·
             Vector3 downPos = startPos + Vector3.down * _pressDistance;
+            AudioManager.instance.PlaySE("Press");
             while (Vector3.Distance(transform.position, downPos) > 0.01f)
             {
                 if (!_isActive)
@@ -55,5 +56,12 @@ public class PressMachine : MonoBehaviour
     public void Toggle()
     {
         _isActive = !_isActive;
+    }
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Wall"))
+        {
+            AudioManager.instance.PlaySE("Press");
+        }
     }
 }
