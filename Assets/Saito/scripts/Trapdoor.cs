@@ -32,6 +32,7 @@ public class Trapdoor : MonoBehaviour
 
         // 消える
         spriteRenderer.enabled = false;
+        AudioManager.instance.PlaySE("WallDestroy");
         col.enabled = false;
 
         // 指定時間の80%待つ
@@ -49,6 +50,7 @@ public class Trapdoor : MonoBehaviour
 
         // 完全に戻す
         spriteRenderer.enabled = true;
+        AudioManager.instance.PlaySE("ResetWall");
         col.enabled = true;
 
         isDisappeared = false;
@@ -80,6 +82,7 @@ public class Trapdoor : MonoBehaviour
                 if (playerMove != null)
                 {
                     playerMove.TakeDamage(1);
+                    AudioManager.instance.PlaySE("Trapdeadenemy");
                     Debug.Log("プレイヤーが潰された！");
                 }
             }
@@ -88,6 +91,7 @@ public class Trapdoor : MonoBehaviour
             if (hit.CompareTag("Enemy"))
             {
                 Destroy(hit.gameObject);
+                AudioManager.instance.PlaySE("Trapdeadenemy");
                 Debug.Log("エネミーが潰された！");
             }
         }
