@@ -23,6 +23,7 @@ public class PatrolEnemy : MonoBehaviour
         // プレスマシンに当たったら死ぬ
         if (collision.collider.CompareTag("Press"))
         {
+            AudioManager.instance.PlaySE("EnemyDead");
             Destroy(gameObject);
             return;
         }

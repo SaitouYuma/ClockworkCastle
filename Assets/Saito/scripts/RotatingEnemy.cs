@@ -94,6 +94,7 @@ public class RotatingEnemy : MonoBehaviour
     {
         if (collision.collider.CompareTag("Press"))
         {
+            AudioManager.instance.PlaySE("EnemyDead");
             Destroy(gameObject);
             return;
         }
