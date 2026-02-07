@@ -1,91 +1,120 @@
 using UnityEngine;
 using System.Collections;
-using static UnityEngine.GraphicsBuffer;
-using System;
 
 public class BackgroundChanger : MonoBehaviour
 {
     [Header("背景設定")]
-    [SerializeField] SpriteRenderer[] backgroundLayers; // 全ての背景（4つ）
-    [SerializeField] int targetBackgroundIndex = 0; // このエリアで表示する背景（0?3）
-    [SerializeField] float fadeDuration = 1f;
+    [SerializeField] private SpriteRenderer[] backgroundLayers;
+    [SerializeField] private int targetBackgroundIndex = 0;
+    [SerializeField] private float fadeDuration = 1f;
 
-    private static int currentBackgroundIndex = 0; // 現在表示中の背景
-    private static bool isChanging = false;
+    private static BackgroundManager manager;
+
+    void Awake()
+    {
+        // 初回のみマネージャーを初期化
+        if (manager == null)
+        {
+            manager = new BackgroundManager();
+        }
+    }
 
     void Start()
     {
-        // 初期状態：最初の背景だけ表示
+        // 背景レイヤーの参照を登録
         if (backgroundLayers != null && backgroundLayers.Length > 0)
         {
-            for (int i = 0; i < backgroundLayers.Length; i++)
-            {
-                if (backgroundLayers[i] != null)
-                {
-                    Color color = backgroundLayers[i].color;
-                    backgroundLayers[i].color = new Color(color.r, color.g, color.b, i == 0 ? 1f : 0f);
-                }
-            }
+            manager.RegisterLayers(backgroundLayers);
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !isChanging && currentBackgroundIndex != targetBackgroundIndex)
+        if (other.CompareTag("Player") && !manager.IsChanging
+            && manager.CurrentIndex != targetBackgroundIndex)
         {
-            StartCoroutine(FadeToBackground(targetBackgroundIndex));
+            StartCoroutine(manager.FadeToBackground(targetBackgroundIndex, fadeDuration));
+        }
+    }
+}
+
+// 背景管理用クラス
+public class BackgroundManager
+{
+    private SpriteRenderer[] layers;
+    private int currentIndex = 0;
+    private bool isChanging = false;
+
+    public int CurrentIndex => currentIndex;
+    public bool IsChanging => isChanging;
+
+    public void RegisterLayers(SpriteRenderer[] backgroundLayers)
+    {
+        if (layers == null)
+        {
+            layers = backgroundLayers;
+            InitializeLayers();
         }
     }
 
-    IEnumerator FadeToBackground(int newIndex)
+    private void InitializeLayers()
     {
-        if (backgroundLayers == null || newIndex >= backgroundLayers.Length || newIndex < 0)
+        for (int i = 0; i < layers.Length; i++)
+        {
+            if (layers[i] != null)
+            {
+                Color color = layers[i].color;
+                layers[i].color = new Color(color.r, color.g, color.b, i == 0 ? 1f : 0f);
+            }
+        }
+    }
+
+    public IEnumerator FadeToBackground(int newIndex, float duration)
+    {
+        if (layers == null || newIndex >= layers.Length || newIndex < 0)
             yield break;
 
         isChanging = true;
 
-        SpriteRenderer oldBackground = backgroundLayers[currentBackgroundIndex];
-        SpriteRenderer newBackground = backgroundLayers[newIndex];
+        SpriteRenderer oldBg = layers[currentIndex];
+        SpriteRenderer newBg = layers[newIndex];
 
         float elapsed = 0f;
 
-        // クロスフェード
-        while (elapsed < fadeDuration)
+        while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-            float t = elapsed / fadeDuration;
+            float t = Mathf.Clamp01(elapsed / duration);
 
-            // 古い背景をフェードアウト
-            if (oldBackground != null)
+            if (oldBg != null)
             {
-                Color oldColor = oldBackground.color;
-                oldBackground.color = new Color(oldColor.r, oldColor.g, oldColor.b, 1f - t);
+                Color c = oldBg.color;
+                oldBg.color = new Color(c.r, c.g, c.b, 1f - t);
             }
 
-            // 新しい背景をフェードイン
-            if (newBackground != null)
+            if (newBg != null)
             {
-                Color newColor = newBackground.color;
-                newBackground.color = new Color(newColor.r, newColor.g, newColor.b, t);
+                Color c = newBg.color;
+                newBg.color = new Color(c.r, c.g, c.b, t);
             }
 
             yield return null;
         }
 
-        // 最終的な透明度を設定
-        if (oldBackground != null)
+        // 最終値を確実に設定
+        if (oldBg != null)
         {
-            Color oldColor = oldBackground.color;
-            oldBackground.color = new Color(oldColor.r, oldColor.g, oldColor.b, 0f);
+            Color c = oldBg.color;
+            oldBg.color = new Color(c.r, c.g, c.b, 0f);
         }
 
-        if (newBackground != null)
+        if (newBg != null)
         {
-            Color newColor = newBackground.color;
-            newBackground.color = new Color(newColor.r, newColor.g, newColor.b, 1f);
+            Color c = newBg.color;
+            newBg.color = new Color(c.r, c.g, c.b, 1f);
         }
 
-        currentBackgroundIndex = newIndex;
+        currentIndex = newIndex;
         isChanging = false;
     }
 }
