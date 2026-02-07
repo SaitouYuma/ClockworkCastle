@@ -107,4 +107,8 @@ public class GameManager : MonoBehaviour
     {
         AudioManager.instance.PlayBGM(scene.name);
     }
+   public void Goal()
+    {
+        SceneChanger(2);
+    }
 }
