@@ -50668,6 +50668,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2676864270770400073, guid: 7d973358fc6c0334890024ac0e881f23, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676864270770400073, guid: 7d973358fc6c0334890024ac0e881f23, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -55576,6 +55584,18 @@ PrefabInstance:
     - target: {fileID: 4618362635538719887, guid: af3463c07051b1b4bb8659c84bdad9d3, type: 3}
       propertyPath: _seList.Array.data[7].volume
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4618362635538719887, guid: af3463c07051b1b4bb8659c84bdad9d3, type: 3}
+      propertyPath: _bgmList.Array.data[0].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4618362635538719887, guid: af3463c07051b1b4bb8659c84bdad9d3, type: 3}
+      propertyPath: _bgmList.Array.data[1].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4618362635538719887, guid: af3463c07051b1b4bb8659c84bdad9d3, type: 3}
+      propertyPath: _bgmList.Array.data[4].volume
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
