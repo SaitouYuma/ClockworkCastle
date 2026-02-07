@@ -52,15 +52,15 @@ MonoBehaviour:
   - key: Title
     clip: {fileID: 8300000, guid: b1f9a49ce1f64974dbd535c828c128d7, type: 3}
     loop: 0
-    volume: 1
+    volume: 0.5
   - key: IngameScene
     clip: {fileID: 8300000, guid: fbda75b6cc2503a4ca80ec6f6e7559c3, type: 3}
     loop: 0
-    volume: 1
+    volume: 0.5
   - key: Gameclearscene
     clip: {fileID: 0}
     loop: 0
-    volume: 1
+    volume: 0.5
   - key: GameOverScene
     clip: {fileID: 8300000, guid: b848d2cb436fa2a42ac15e38adbee8c5, type: 3}
     loop: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   - key: Boss
     clip: {fileID: 8300000, guid: c06f7b3d25a7e6b44bf632fe53c2ffb3, type: 3}
     loop: 0
-    volume: 1
+    volume: 0.5
   _seList:
   - key: Lever
     clip: {fileID: 8300000, guid: 10ebf84611c53ca48ba75c16a692657e, type: 3}
