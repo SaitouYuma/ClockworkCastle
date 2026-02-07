@@ -50,23 +50,23 @@ MonoBehaviour:
   _seSource: {fileID: 4747789170652938551}
   _bgmList:
   - key: Title
-    clip: {fileID: 8300000, guid: b1f9a49ce1f64974dbd535c828c128d7, type: 3}
-    loop: 0
+    clip: {fileID: 8300000, guid: ee8200876e2585549ba4d94b9015003f, type: 3}
+    loop: 1
     volume: 0.5
   - key: IngameScene
-    clip: {fileID: 8300000, guid: fbda75b6cc2503a4ca80ec6f6e7559c3, type: 3}
-    loop: 0
+    clip: {fileID: 8300000, guid: 5b68aac5e88996b4895d195c829c2367, type: 3}
+    loop: 1
     volume: 0.5
   - key: Gameclearscene
     clip: {fileID: 0}
     loop: 0
     volume: 0.5
   - key: GameOverScene
-    clip: {fileID: 8300000, guid: b848d2cb436fa2a42ac15e38adbee8c5, type: 3}
+    clip: {fileID: 8300000, guid: 559dad927288d304fa1d714d0cf04f18, type: 3}
     loop: 0
     volume: 1
   - key: Boss
-    clip: {fileID: 8300000, guid: c06f7b3d25a7e6b44bf632fe53c2ffb3, type: 3}
+    clip: {fileID: 8300000, guid: 38937be1f80ef8a4495788009289469b, type: 3}
     loop: 0
     volume: 0.5
   _seList:
