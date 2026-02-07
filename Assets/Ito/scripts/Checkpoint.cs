@@ -1,24 +1,32 @@
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Checkpoint : MonoBehaviour
 {
     GameManager _gm;
     [SerializeField] SpriteRenderer _flag;
     public bool _ischeck;
+    Vector2 _respawnPos;
 
     void Start()
     {
         _gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         _flag.color = Color.blue;
+        _respawnPos = transform.position;
      }
     void OnTriggerEnter2D(Collider2D col)
     {
       if(col.gameObject.CompareTag("Player"))
         {
-            _gm._checkPointPos = transform.position;
+            _respawnPos = new Vector2(transform.position.x,transform.position.y +1);
+            _gm._checkPointPos = _respawnPos;
             _flag.color = Color.white;
-            _ischeck = true;
+            if(!_ischeck)
+            {
+                AudioManager.instance.PlaySE("flag");
+                _ischeck = true;
+            }
         }
     }
 }
