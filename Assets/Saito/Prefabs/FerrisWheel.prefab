@@ -244,6 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3258655230775302751}
   - component: {fileID: 4171836502930545723}
+  - component: {fileID: 4313728910268564404}
   m_Layer: 0
   m_Name: FerrisWheel
   m_TagString: Untagged
@@ -283,6 +284,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WheelRotator
   speed: 30
   pivotPoint: {fileID: 3258655230775302751}
+--- !u!114 &4313728910268564404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3781849524937655417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd23292901e07cf4385a8cabff99d76d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PivotPathVisualizer
+  pivotCenter: {fileID: 0}
+  platforms: []
+  pathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  lineWidth: 0.1
+  sortingOrder: -100
+  pipeSprite: {fileID: 0}
 --- !u!1 &3785095770614808875
 GameObject:
   m_ObjectHideFlags: 0
