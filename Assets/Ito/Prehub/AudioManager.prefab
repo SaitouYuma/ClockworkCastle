@@ -50,55 +50,55 @@ MonoBehaviour:
   _seSource: {fileID: 4747789170652938551}
   _bgmList:
   - key: Title
-    clip: {fileID: 8300000, guid: b1f9a49ce1f64974dbd535c828c128d7, type: 3}
+    clip: {fileID: 8300000, guid: ee8200876e2585549ba4d94b9015003f, type: 3}
     loop: 1
     volume: 0.5
   - key: IngameScene
-    clip: {fileID: 8300000, guid: fbda75b6cc2503a4ca80ec6f6e7559c3, type: 3}
+    clip: {fileID: 8300000, guid: 5b68aac5e88996b4895d195c829c2367, type: 3}
     loop: 1
     volume: 0.5
   - key: Gameclearscene
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 5b68aac5e88996b4895d195c829c2367, type: 3}
     loop: 0
     volume: 0.5
   - key: GameOverScene
-    clip: {fileID: 8300000, guid: b848d2cb436fa2a42ac15e38adbee8c5, type: 3}
+    clip: {fileID: 8300000, guid: 559dad927288d304fa1d714d0cf04f18, type: 3}
     loop: 0
     volume: 1
   - key: Boss
-    clip: {fileID: 8300000, guid: c06f7b3d25a7e6b44bf632fe53c2ffb3, type: 3}
-    loop: 0
+    clip: {fileID: 8300000, guid: 38937be1f80ef8a4495788009289469b, type: 3}
+    loop: 1
     volume: 0.5
   _seList:
   - key: Lever
-    clip: {fileID: 8300000, guid: 10ebf84611c53ca48ba75c16a692657e, type: 3}
+    clip: {fileID: 8300000, guid: 128b983688af20a4e821242165c250eb, type: 3}
     volume: 1
   - key: jump
-    clip: {fileID: 8300000, guid: 87f71ba022d472142b38ee26b923f3ea, type: 3}
+    clip: {fileID: 8300000, guid: ea2bcc00bded0df47b2c5f3da919ed8e, type: 3}
     volume: 1
   - key: gameover
     clip: {fileID: 8300000, guid: b848d2cb436fa2a42ac15e38adbee8c5, type: 3}
     volume: 1
   - key: flag
-    clip: {fileID: 8300000, guid: 88d45024b2cf1244e8aa52444d89d31a, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 5e41bdfe6b7ab1c4fb8a37ab07f5bfc0, type: 3}
+    volume: 5
   - key: Press
-    clip: {fileID: 8300000, guid: fc8b5cf2fe7eaf74aad006f9f316a7d1, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 5e4030acf66514746964e0c98e369655, type: 3}
+    volume: 5
   - key: Trapdeadenemy
-    clip: {fileID: 8300000, guid: 2b5b16979cd86a14d9e175eaaadbcf73, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 22b01eca551db564881df782e940a2f1, type: 3}
+    volume: 5
   - key: WallDestroy
-    clip: {fileID: 8300000, guid: 2b5b16979cd86a14d9e175eaaadbcf73, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 24baa2e1724253947a0f0bf49372fe9f, type: 3}
+    volume: 5
   - key: ResetWall
-    clip: {fileID: 8300000, guid: a720f296207735741858724f0064253b, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: d4220d5b805f315438f9c10db2b30ebc, type: 3}
+    volume: 5
   - key: EnemyDead
-    clip: {fileID: 8300000, guid: 662d72e2e2b796c4b85fbe65265d1c69, type: 3}
+    clip: {fileID: 8300000, guid: 8baa6b9177b069e49a95a4bc33352327, type: 3}
     volume: 1
   - key: Dead
-    clip: {fileID: 8300000, guid: 5987b827c53af574d86d2cfc5a2c75ba, type: 3}
+    clip: {fileID: 8300000, guid: ad323c8dacaae3a4cadac3e00fd7a941, type: 3}
     volume: 1
 --- !u!82 &3833285993755782072
 AudioSource:

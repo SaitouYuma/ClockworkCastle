@@ -63393,18 +63393,6 @@ PrefabInstance:
       propertyPath: _seList.Array.data[7].volume
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 4618362635538719887, guid: af3463c07051b1b4bb8659c84bdad9d3, type: 3}
-      propertyPath: _bgmList.Array.data[0].volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618362635538719887, guid: af3463c07051b1b4bb8659c84bdad9d3, type: 3}
-      propertyPath: _bgmList.Array.data[1].volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618362635538719887, guid: af3463c07051b1b4bb8659c84bdad9d3, type: 3}
-      propertyPath: _bgmList.Array.data[4].volume
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
