@@ -57289,6 +57289,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GravityLever
       objectReference: {fileID: 0}
+    - target: {fileID: 4152965580913533719, guid: 1e5b433f88db9e740aa23e2227062a44, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152965580913533719, guid: 1e5b433f88db9e740aa23e2227062a44, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7209034
+      objectReference: {fileID: 0}
     - target: {fileID: 5525675244351634497, guid: 1e5b433f88db9e740aa23e2227062a44, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.891518
@@ -63347,6 +63355,10 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: ee8200876e2585549ba4d94b9015003f, type: 3}
     - target: {fileID: 4618362635538719887, guid: af3463c07051b1b4bb8659c84bdad9d3, type: 3}
       propertyPath: _bgmList.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5b68aac5e88996b4895d195c829c2367, type: 3}
+    - target: {fileID: 4618362635538719887, guid: af3463c07051b1b4bb8659c84bdad9d3, type: 3}
+      propertyPath: _bgmList.Array.data[2].clip
       value: 
       objectReference: {fileID: 8300000, guid: 5b68aac5e88996b4895d195c829c2367, type: 3}
     - target: {fileID: 4618362635538719887, guid: af3463c07051b1b4bb8659c84bdad9d3, type: 3}
