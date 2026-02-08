@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
-
 public class FadeManager : MonoBehaviour
 {
-    float Speed = 0.02f;        //フェードするスピード
+    [SerializeField] float Speed = 0.02f;        //フェードするスピード
     float red, green, blue, alfa;
 
     public bool Out = false;
@@ -12,6 +11,7 @@ public class FadeManager : MonoBehaviour
     public static FadeManager instance;
 
     Image fadeImage;                //パネル
+
 
 
     private void Awake()
@@ -34,6 +34,9 @@ public class FadeManager : MonoBehaviour
         green = fadeImage.color.g;
         blue = fadeImage.color.b;
         alfa = fadeImage.color.a;
+        alfa = 0;
+        Alpha();
+        fadeImage.enabled = false;
     }
 
     void Update()
@@ -75,5 +78,9 @@ public class FadeManager : MonoBehaviour
     {
         fadeImage.color = new Color(red, green, blue, alfa);
     }
+    public void StartFadeOut()
+    {
+        alfa = 0;
+        Out = true;
+    }
 }
-
