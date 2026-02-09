@@ -93,6 +93,11 @@ public class GameManager : MonoBehaviour
         if (scene.name == "GameScene")
         {
             _playerstock = 3;
+            Hpupdate();
+        }
+        else
+        {
+            _playerlifeImage = null;
         }
     }
    public void Goal()
