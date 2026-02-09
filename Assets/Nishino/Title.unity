@@ -201,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 24175416}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1011728179}
+        m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
+        m_MethodName: OnQuitButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &24175416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2406,7 +2418,6 @@ MonoBehaviour:
   _playerPrefab: {fileID: 3298113979362741311, guid: 5503bf3612370c2478c42465823b0bdc, type: 3}
   _playerstock: 3
   _checkPointPos: {x: 0, y: 0}
-  _playerlifeImage: []
 --- !u!4 &931958602
 Transform:
   m_ObjectHideFlags: 0
@@ -2509,6 +2520,7 @@ GameObject:
   - component: {fileID: 1011728176}
   - component: {fileID: 1011728175}
   - component: {fileID: 1011728178}
+  - component: {fileID: 1011728179}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -2575,6 +2587,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb4090f8a8e4a94fa9ce51d8ba06436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitleButton
+--- !u!114 &1011728179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011728172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c64d466f1c6f74da048e589514edfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuitGame
 --- !u!1 &1047836925
 GameObject:
   m_ObjectHideFlags: 0
