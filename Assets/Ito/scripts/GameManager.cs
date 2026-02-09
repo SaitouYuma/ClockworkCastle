@@ -90,9 +90,15 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         AudioManager.instance.PlayBGM(scene.name);
-        if (scene.name == "GameScene")
+        if (scene.name == "IngameScene")
         {
             _playerstock = 3;
+            _checkPointPos = new Vector2(-4,0);
+            Hpupdate();
+        }
+        else
+        {
+            _playerlifeImage = null;
         }
     }
    public void Goal()
