@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
         if (scene.name == "GameScene")
         {
             _playerstock = 3;
+            _checkPointPos = new Vector2(-4,0);
             Hpupdate();
         }
         else
