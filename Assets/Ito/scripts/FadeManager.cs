@@ -50,7 +50,6 @@ public class FadeManager : MonoBehaviour
             Alpha();
             yield return null;
         }
-
         SceneManager.LoadScene(sceneName);
 
         while (alfa > 0)
