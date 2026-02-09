@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] int _playerstock = 3;
     public Vector2 _checkPointPos;
-    [SerializeField] Image [] _playerlifeImage;
+    Image [] _playerlifeImage;
 
     private void Awake()
     {
@@ -22,18 +23,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-    private void Start()
-    {
-        AudioManager.instance.PlayBGM(SceneManager.GetActiveScene().name);
-    }
-    public enum GameState
-    {
-        Title,
-        Playing,
-        Paused,
-        Result,
-        GameOver
     }
    
     public void SceneChanger(int number)
@@ -62,7 +51,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Gameover();
+            FadeManager.instance.FadeOutAndLoad("Rizaruto2");
         }
     }
     public void Respawn()
@@ -76,7 +65,8 @@ public class GameManager : MonoBehaviour
     }
     void Hpupdate()
     {
-        for(int i = 0;i<_playerlifeImage.Length;i++)
+        if (_playerlifeImage == null) return;
+        for (int i = 0;i<_playerlifeImage.Length;i++)
         {
             if (i < _playerstock)
             {
@@ -87,12 +77,6 @@ public class GameManager : MonoBehaviour
                 _playerlifeImage[i].enabled = false;  // 非表示
             }
         }
-    }
-
-    public void Gameover()
-    {
-        SceneChanger(3);//ゲームオーバーシーンへ
-        Debug.Log("げーむおーばー");
     }
     private void OnEnable()
     {
@@ -106,9 +90,19 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         AudioManager.instance.PlayBGM(scene.name);
+        if (scene.name == "GameScene")
+        {
+            _playerstock = 3;
+        }
     }
    public void Goal()
     {
-        SceneChanger(2);
+        FadeManager.instance.FadeOutAndLoad("Rizaruto");
     }
+    public void SetLifeImages(Image[] images)
+    {
+        _playerlifeImage = images;
+        Hpupdate();
+    }
+
 }

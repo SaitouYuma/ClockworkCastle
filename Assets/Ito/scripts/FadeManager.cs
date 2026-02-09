@@ -1,79 +1,88 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
 public class FadeManager : MonoBehaviour
 {
-    float Speed = 0.02f;        //フェードするスピード
+    [SerializeField] float Speed = 0.005f;        //フェードするスピード
     float red, green, blue, alfa;
-
-    public bool Out = false;
-    public bool In = false;
 
     public static FadeManager instance;
 
-    Image fadeImage;                //パネル
+    [SerializeField] Image fadeImage;                //パネル
 
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
-        }
-    }
-
-    void Start()
-    {
-        fadeImage = GetComponent<Image>();
-        red = fadeImage.color.r;
-        green = fadeImage.color.g;
-        blue = fadeImage.color.b;
-        alfa = fadeImage.color.a;
-    }
-
-    void Update()
-    {
-        if (In)
-        {
-            FadeIn();
+            return; // ← これ超重要
         }
 
-        if (Out)
-        {
-            FadeOut();
-        }
+        instance = this;
+        DontDestroyOnLoad(transform.root.gameObject);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    void FadeIn()
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        alfa -= Speed;
-        Alpha();
-        if (alfa <= 0)
-        {
-            In = false;
-            fadeImage.enabled = false;
-        }
+        StartCoroutine(Startt());
+    }
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    public void FadeOutAndLoad(string sceneName)
+    {
+        StartCoroutine(FadeOutCoroutine(sceneName));
     }
 
-    void FadeOut()
+     IEnumerator FadeOutCoroutine(string sceneName)
     {
+        alfa = 0f;
         fadeImage.enabled = true;
-        alfa += Speed;
-        Alpha();
-        if (alfa >= 1)
+        while (alfa < 1)
         {
-            Out = false;
+            alfa += Speed;
+            Alpha();
+            yield return null;
         }
+        SceneManager.LoadScene(sceneName);
+
+        while (alfa > 0)
+        {
+            alfa -= Speed;
+            Alpha();
+            yield return null;
+        }
+
+        fadeImage.enabled = false;
     }
 
     void Alpha()
     {
         fadeImage.color = new Color(red, green, blue, alfa);
     }
-}
+    IEnumerator Startt()
+    {
+        red = fadeImage.color.r;
+        green = fadeImage.color.g;
+        blue = fadeImage.color.b;
 
+        alfa = 1f;
+        fadeImage.enabled = true;
+        Alpha();
+
+        while (alfa > 0)
+        {
+            alfa -= Speed;
+            Alpha();
+            yield return null;
+        }
+
+        fadeImage.enabled = false;
+    }
+
+}
