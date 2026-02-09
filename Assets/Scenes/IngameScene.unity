@@ -206,7 +206,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &56824014
@@ -57947,6 +57947,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5763962097383235014, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7680520672773851989, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
       propertyPath: m_Name
       value: PatrolEnemy (2)
@@ -58097,6 +58101,10 @@ PrefabInstance:
     - target: {fileID: 2676864270770400073, guid: 7d973358fc6c0334890024ac0e881f23, type: 3}
       propertyPath: m_SortingLayerID
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489034346046640602, guid: 7d973358fc6c0334890024ac0e881f23, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -59794,6 +59802,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5763962097383235014, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7680520672773851989, guid: 852254b336f0a7046ab424c4c2c303cb, type: 3}
       propertyPath: m_Name
       value: PatrolEnemy (1)
@@ -60249,6 +60261,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3350661793389097630, guid: 20acf8205102cac4999cbb0d9692c690, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350661793389097630, guid: 20acf8205102cac4999cbb0d9692c690, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350661793389097630, guid: 20acf8205102cac4999cbb0d9692c690, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7559926002554052432, guid: 20acf8205102cac4999cbb0d9692c690, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -60345,7 +60369,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &1152296046
@@ -60694,7 +60718,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &1329037248
@@ -62827,6 +62851,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581174646}
     m_Modifications:
+    - target: {fileID: 1546268693079101064, guid: 35926472bdc8782409aba88bcc3e351e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3467339647513040923, guid: 35926472bdc8782409aba88bcc3e351e, type: 3}
       propertyPath: m_Name
       value: PatrolEnemy
@@ -62889,6 +62917,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581174646}
     m_Modifications:
+    - target: {fileID: 4224914046131214098, guid: 3bb8b565f533d4a4a834afa03c0da05c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4506406931916941776, guid: 3bb8b565f533d4a4a834afa03c0da05c, type: 3}
       propertyPath: m_BodyType
       value: 0
@@ -64410,7 +64442,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1937276345 stripped
@@ -68199,6 +68231,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581174646}
     m_Modifications:
+    - target: {fileID: 4224914046131214098, guid: 3bb8b565f533d4a4a834afa03c0da05c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5534280768647853620, guid: 3bb8b565f533d4a4a834afa03c0da05c, type: 3}
       propertyPath: m_Name
       value: CenterPoint
