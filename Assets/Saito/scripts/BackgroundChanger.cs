@@ -12,8 +12,8 @@ public class BackgroundChanger : MonoBehaviour
 
     void Awake()
     {
-        // 初回のみマネージャーを初期化
-        if (manager == null)
+        // シーン読み込み時にマネージャーをリセット
+        if (manager == null || manager.NeedsReset())
         {
             manager = new BackgroundManager();
         }
@@ -48,13 +48,22 @@ public class BackgroundManager
     public int CurrentIndex => currentIndex;
     public bool IsChanging => isChanging;
 
+    // レイヤーが破棄されているかチェック
+    public bool NeedsReset()
+    {
+        return layers != null && layers.Length > 0 && layers[0] == null;
+    }
+
     public void RegisterLayers(SpriteRenderer[] backgroundLayers)
     {
-        if (layers == null)
+        // 既に登録済みかつ有効ならスキップ
+        if (layers != null && layers.Length > 0 && layers[0] != null)
         {
-            layers = backgroundLayers;
-            InitializeLayers();
+            return;
         }
+
+        layers = backgroundLayers;
+        InitializeLayers();
     }
 
     private void InitializeLayers()
@@ -80,7 +89,6 @@ public class BackgroundManager
         SpriteRenderer newBg = layers[newIndex];
 
         float elapsed = 0f;
-
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
@@ -91,7 +99,6 @@ public class BackgroundManager
                 Color c = oldBg.color;
                 oldBg.color = new Color(c.r, c.g, c.b, 1f - t);
             }
-
             if (newBg != null)
             {
                 Color c = newBg.color;
@@ -107,7 +114,6 @@ public class BackgroundManager
             Color c = oldBg.color;
             oldBg.color = new Color(c.r, c.g, c.b, 0f);
         }
-
         if (newBg != null)
         {
             Color c = newBg.color;
