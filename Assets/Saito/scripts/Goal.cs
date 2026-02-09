@@ -8,7 +8,6 @@ public class Goal : MonoBehaviour
         if(col.CompareTag("Player"))
         {
             _isnear = true;
-            Debug.Log("ÇøÇØÇ¶ÇÊ");
         }
         
     }
@@ -17,7 +16,6 @@ public class Goal : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             _isnear = false;
-            Debug.Log("Ç«Ç±çsÇ≠ÇÀÇÒ");
         }
     }
     void Update()

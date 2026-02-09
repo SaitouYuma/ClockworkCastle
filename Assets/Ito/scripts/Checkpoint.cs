@@ -11,7 +11,6 @@ public class Checkpoint : MonoBehaviour
 
     void Start()
     {
-        _gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         _flag.color = Color.blue;
         _respawnPos = transform.position;
      }
@@ -20,7 +19,7 @@ public class Checkpoint : MonoBehaviour
       if(col.gameObject.CompareTag("Player"))
         {
             _respawnPos = new Vector2(transform.position.x,transform.position.y +1);
-            _gm._checkPointPos = _respawnPos;
+            GameManager.instance._checkPointPos = _respawnPos;
             _flag.color = Color.white;
             if(!_ischeck)
             {
