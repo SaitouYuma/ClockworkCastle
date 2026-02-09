@@ -4,6 +4,6 @@ public class TitleButton : MonoBehaviour
 {
     public void StartBtn()
     {
-        SceneManager.LoadScene("IngameScene");
+        FadeManager.instance.FadeOutAndLoad("IngameScene");
     }
 }

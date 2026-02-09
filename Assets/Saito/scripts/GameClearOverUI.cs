@@ -6,7 +6,7 @@ public class GameClearOverUI : MonoBehaviour
     {
         if (GameManager.instance != null)
         {
-            GameManager.instance.SceneChanger(0);
+            FadeManager.instance.FadeOutAndLoad("Title");
         }
     }
 
@@ -14,7 +14,7 @@ public class GameClearOverUI : MonoBehaviour
     {
         if (GameManager.instance != null)
         {
-            GameManager.instance.SceneChanger(1);
+            FadeManager.instance.FadeOutAndLoad("IngameScene");
         }
     }
 }
