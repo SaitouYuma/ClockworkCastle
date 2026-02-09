@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -62,7 +63,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Gameover();
+            FadeManager.instance.FadeOutAndLoad("Rizaruto2");
         }
     }
     public void Respawn()
@@ -88,12 +89,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-    public void Gameover()
-    {
-        SceneChanger(3);//ゲームオーバーシーンへ
-        Debug.Log("げーむおーばー");
-    }
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -109,6 +104,7 @@ public class GameManager : MonoBehaviour
     }
    public void Goal()
     {
-        SceneChanger(2);
+        FadeManager.instance.FadeOutAndLoad("Rizaruto");
     }
+   
 }
