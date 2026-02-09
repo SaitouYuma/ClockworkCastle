@@ -100,6 +100,9 @@ MonoBehaviour:
   - key: Dead
     clip: {fileID: 8300000, guid: ad323c8dacaae3a4cadac3e00fd7a941, type: 3}
     volume: 1
+  - key: UI
+    clip: {fileID: 8300000, guid: 88d45024b2cf1244e8aa52444d89d31a, type: 3}
+    volume: 1
 --- !u!82 &3833285993755782072
 AudioSource:
   m_ObjectHideFlags: 0
