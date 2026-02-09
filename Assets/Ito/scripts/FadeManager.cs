@@ -32,7 +32,6 @@ public class FadeManager : MonoBehaviour
     }
     void OnDestroy()
     {
-        Debug.Log("FadeManager Destroy‚³‚ê‚½");
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     public void FadeOutAndLoad(string sceneName)
